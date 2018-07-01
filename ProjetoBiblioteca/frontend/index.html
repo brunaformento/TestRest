@@ -1,0 +1,91 @@
+<!doctype html>
+<html ng-app="myApp">
+
+<head>
+  <title>Projeto Biblioteca</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="content/styles/bootstrap.min.css">
+  <link rel="stylesheet" href="content/styles/styleLivro.css">
+  <link rel="stylesheet" href="content/styles/styleGenero.css">
+  <link rel="stylesheet" href="content/styles/styleIdioma.css">
+
+  <script src="content/scripts/jquery.min.js"></script>
+  <script src="content/scripts/bootstrap.min.js"></script>
+  <script src="content/scripts/angular.min.js"></script>
+  <script src="content/scripts/angular-modal-service.js"></script>
+  <script src="content/scripts/angular-route.min.js"></script>
+  <script src="angular/modulos/principal.js"></script>
+  <script src="angular/controllers/ctrlLivro.js"></script>
+  <script src="angular/controllers/ctrlGenero.js"></script>
+  <script src="angular/controllers/ctrlIdioma.js"></script>
+
+  <script src="angular/services/route.js"></script>
+
+</head>
+
+<body style="height:1500px">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Projeto Biblioteca</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#!index.html">Index</a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle dropCancelaEvento" data-toggle="dropdown" href="#">Livro
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#/livros/lista">Listar</a>
+            </li>
+            <li>
+              <a href="#/livros/novo">Cadastrar</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="dropdown-toggle dropCancelaEvento" data-toggle="dropdown" href="#">Genero
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#/generos/lista">Listar</a>
+            </li>
+            <li>
+              <a href="#/generos/novo">Cadastrar</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="dropdown-toggle dropCancelaEvento" data-toggle="dropdown" href="#">Idioma
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#/idiomas/lista">Listar</a>
+            </li>
+            <li>
+              <a href="#/idiomas/novo">Cadastrar</a>
+            </li>
+          </ul>
+    </div>
+  </nav>
+  <div class="container" style="margin-top:100px">
+    <div ng-view></div>
+  </div>
+
+  <script>
+    $(".dropCancelaEvento").on("click", function (e) {
+      e.preventDefault();
+    });
+  </script>
+</body>
+
+</html>

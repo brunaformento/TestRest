@@ -1,0 +1,59 @@
+<h2>Cadastrar novo Livro </h2>
+<form>
+
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" ng-model="livro.nome" class="form-control" id="nome" placeholder="Digite o nome" name="nome">
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="selecaoGenero">Genero</label>
+                <select ng-model="generoEscolhido" ng-options="genero.descricao for genero in generosCadastrados" class="form-control" id="selecaoGenero">
+                    <option value="">Selecione</option>
+                </select>
+            </div>
+            <div class="col-sm-3" style="margin-top:25px">
+                <button ng-click="adicionaGenero()" type="button" class="btn btn-success">Adicionar</button>
+            </div>
+
+            <div class="col-sm-3">
+                <label for="selecaoIdioma">Idioma</label>
+                <select ng-model="livro.idioma" ng-options="idioma.descricao for idioma in idiomasCadastrados" class="form-control" id="selecaoIdioma">
+                    <option value="">Selecione</option>
+                </select>
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-2">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="colcodth">Codigo</th>
+                                <th>Generos</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in livro.genero">
+                                <td class="colcodtd">{{ item.codigo }}</td>
+                                <td>{{ item.descricao }}</td>
+                                <td>
+                                    <span ng-click="removerGeneroTabela(item)" class="glyphicon glyphicon-remove" style="cursor:pointer" aria-hidden="true"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group ">
+        <button ng-click="irParaPagina( '/livros/lista') " type="button " class="btn btn-danger ">Cancelar</button>
+        <button ng-click="salvarLivro() " type="button " class="btn btn-success ">Salvar</button>
+        <button ng-click="limparCampos() " type="Limpar " class="btn btn-default ">Limpar</button>
+    </div>
+</form>
